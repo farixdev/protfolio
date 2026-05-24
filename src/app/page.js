@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "./components/Navbar";
+import { Footer } from "./components/Footer";
+import { MediaSidebar } from "./components/MediaSidebar";
 
 // ── Dot grid — fixed pixel size, never stretches ─────────────────────────────
 function DotGrid({ cols = 5, rows = 5, size = 100 }) {
@@ -30,24 +32,7 @@ function DotGrid({ cols = 5, rows = 5, size = 100 }) {
 
 
 // ── Left media sidebar — desktop only ────────────────────────────────────────
-function MediaSidebar() {
-  return (
-    <div className="hidden md:flex flex-col items-center fixed z-[60]"
-      style={{ left: 36, top: 0, gap: 12 }}>
-      <div style={{ width: 1, height: "28vh", backgroundColor: "#abb2bf", marginBottom: 4 }} />
-      <a href="#" style={{ opacity: 0.7 }} className="hover:opacity-100 transition-opacity">
-        <Image src="/icons/discord.svg" alt="discord" width={25} height={25} />
-      </a>
-      <a href="https://github.com/farixdev" target="_blank" rel="noreferrer"
-        style={{ opacity: 0.7 }} className="hover:opacity-100 transition-opacity">
-        <Image src="/icons/github.svg" alt="github" width={25} height={25} />
-      </a>
-      <a href="mailto:onlyfarix@gmail.com" style={{ opacity: 0.7 }} className="hover:opacity-100 transition-opacity">
-        <Image src="/icons/email.svg" alt="email" width={25} height={25} />
-      </a>
-    </div>
-  );
-}
+// Component imported from ./components/MediaSidebar
 // ── Button ───────────────────────────────────────────────────────────────────
 function Btn({ href, children }) {
   const [hovered, setHovered] = useState(false);
@@ -116,13 +101,28 @@ function ProjectCard({ image, techs, name, desc, links }) {
 // ── Skill block ──────────────────────────────────────────────────────────────
 function SkillBlock({ name, skills }) {
   return (
-    <div style={{ border: "1px solid #abb2bf", minWidth: 160, maxWidth: 220 }}>
-      <div className="px-3 py-2"
-        style={{ borderBottom: "1px solid #abb2bf", color: "#fff", fontWeight: 600, fontFamily: "FiraCode-Bold", fontSize: 14 }}>
+    <div style={{ border: "1px solid #abb2bf", minWidth: 110, maxWidth: 220 }}>
+      <div style={{ 
+        borderBottom: "1px solid #abb2bf", 
+        color: "#fff", 
+        fontWeight: 600, 
+        fontFamily: "FiraCode-Bold", 
+        fontSize: 14,
+        padding: "10px 16px"
+      }}>
         {name}
       </div>
-      <ul className="flex flex-wrap gap-2 p-3"
-        style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 13, listStyle: "none" }}>
+      <ul style={{ 
+        color: "#abb2bf", 
+        fontFamily: "FiraCode-Regular", 
+        fontSize: 13, 
+        listStyle: "none",
+        padding: "12px 16px",
+        display: "flex",
+        flexWrap: "wrap",
+        gap:8 ,
+        margin: 0
+      }}>
         {skills.filter(Boolean).map(s => <li key={s}>{s}</li>)}
       </ul>
     </div>
@@ -142,27 +142,32 @@ desc: "A modern HR management portal built to streamline employee management",
       links: [{ label: "Figma", href: "https://www.figma.com/design/de9FmmVprHrJCfKnLJLo2s/HR-portal?node-id=0-1&t=QF4cZkCFRQjkSkDc-1" }, , { label: "Github", href: "https://github.com/farixdev/HR-Portal" }],
     },
     {
-      image: "/icons/E-book.png",
-      techs: ["C++"],
-      name: "E-book Reader",
-      desc: "Electronic book reader",
-      links: [{ label: "Live", href: "#" }, { label: "Github", href: "#" }],
+      image: "/icons/insta_finder2.png",
+      techs: ["Python", "PyQt5" , 'Selenium'],
+      name: "InstaMap Scraper",
+
+desc: "An automation tool that discovers local businesses through Google Maps and extracts website and Instagram.",
+      links: [{ label: "Github", href: "https://github.com/farixdev/InstagramScrapper" }],
     },
     {
-      image: "/icons/mapleads.png",
-      techs: ["Python", "PyQt5"],
-      name: "MapLeads",
-      desc: "A desktop application to extract leads from Google Maps",
-      links: [{ label: "Github", href: "#" }, { label: "Live", href: "#" }],
+      image: "/icons/App-FStore.png",
+      techs: ["Flutter", "Dart" , 'Firebase'],
+      name: "F-Store",
+      desc: "A modern Flutter e-commerce app with a full shopping experience and powerful admin panel",
+      links: [{ label: "Github", href: "https://github.com/farixdev/shop" }],
     },
   ];
 
-  const skills = [
-    { name: "Languages", skills: ["JavaScript", "C++", "Python"] },
-    { name: "Additional", skills: ["Wordpress", "Graphic Designing"] },
-    { name: "Other", skills: ["HTML", "CSS", "Tailwind"] },
-    { name: "Frameworks", skills: ["React", "Next", "PyQt5"] },
-  ];
+const skills = [
+  { name: "Languages",   skills: ["JavaScript", "Python", "Dart", "HTML5", "CSS3", "C++"] },
+  { name: "Frontend",    skills: ["React.js", "Next.js", "Flutter", "Tailwind CSS", "Bootstrap"] },
+  { name: "Backend",     skills: ["Node.js", "NestJS", "REST APIs"] },
+  { name: "Databases",   skills: ["MongoDB", "MySQL", "Firebase"] },
+  { name: "Additional",  skills: ["WordPress", "Shopify", "WooCommerce", "Elementor"] },
+  { name: "Automation",  skills: ["Python Scripting", "BeautifulSoup", "Selenium", "Task Scheduling"] },
+  { name: "Design",      skills: ["Photoshop", "Illustrator", "Figma"] },
+  { name: "DevOps",      skills: ["Git", "GitHub", "Linux CLI", "cPanel"] },
+];
 
   return (
     <div style={{ backgroundColor: "#282C33", minHeight: "100vh", color: "#fff" }}>
@@ -278,16 +283,20 @@ desc: "A modern HR management portal built to streamline employee management",
           <div style={{ flex: 1, minWidth: 0 }}>
             <SectionHeading>about</SectionHeading>
             <div className="flex flex-col gap-4" style={{ marginBottom: 32 }}>
-              <p style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, lineHeight: 1.8 }}>
-                I'm a self-taught developer based in Lahore, Pakistan. I specialize in building both
-                desktop and web applications, creating responsive and efficient solutions that blend
-                functionality with simplicity.
-              </p>
-              <p style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, lineHeight: 1.8 }}>
-                For the past two years, coding has been more than just a skill for me—it's been a passion.
-                I primarily work with Python and JS, building practical tools and modern apps. I'm always
-                eager to explore new technologies and deliver better experiences.
-              </p>
+             <p style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, lineHeight: 1.8 }}>
+  I'm a full-stack developer and automation engineer based in Lahore, Pakistan, 
+  with 5+ years of experience building web applications, e-commerce platforms, 
+  and custom software tools that solve real business problems.
+</p>
+<p style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, lineHeight: 1.8 }}>
+  I work across the full stack — from React and Next.js frontends to Node.js 
+  backends, WordPress and Shopify stores, and Flutter mobile apps. When 
+  repetitive work slows teams down, I automate it with Python.
+</p>
+<p style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, lineHeight: 1.8 }}>
+  Currently studying Software Engineering at Superior University, Lahore — 
+  and building real things while I do it.
+</p>
             </div>
             <Btn href="/about-me">View all -&gt;</Btn>
           </div>
@@ -300,11 +309,11 @@ desc: "A modern HR management portal built to streamline employee management",
         {/* ── CONTACTS ── */}
         <section id="contacts" style={{ paddingBottom: 64 }}>
           <SectionHeading>contacts</SectionHeading>
-          <div className="flex flex-col sm:flex-row gap-10 justify-between items-start">
+          <div className="flex flex-col sm:flex-row gap-10 justify-between " style={{ alignItems: "flex-start" }}>
             <p style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, lineHeight: 1.8, maxWidth: 420 }}>
               I'm interested in freelance opportunities. However, if you have other requests or questions, don't hesitate to contact me.
             </p>
-            <div style={{ border: "1px solid #abb2bf", padding: 20, minWidth: 240, flexShrink: 0 }}>
+            <div style={{ border: "1px solid #abb2bf", padding: 20, minWidth: 240, flexShrink: 0 ,  alignSelf: "flex-start"}}>
               <h3 style={{ fontWeight: 600, color: "#fff", fontFamily: "FiraCode-Bold", marginBottom: 16, fontSize: 15 }}>
                 Message me here
               </h3>
@@ -329,45 +338,7 @@ desc: "A modern HR management portal built to streamline employee management",
         </section>
       </main>
 
-      {/* ── FOOTER ── */}
-      <footer style={{ borderTop: "1px solid #abb2bf", paddingTop: 32, paddingBottom: 16 }}>
-        <div style={{ maxWidth: 1024, margin: "0 auto", padding: "0 24px" }}>
-          <div className="flex flex-col sm:flex-row justify-between gap-8 flex-wrap" style={{ marginBottom: 40 }}>
-            <div>
-              <div className="flex items-center gap-4 flex-wrap">
-                <div className="flex items-center gap-2">
-                  <Image src="/icons/logo-header-01.png" alt="logo" width={26} height={26} />
-                  <span style={{ color: "#fff", fontWeight: 700, fontFamily: "FiraCode-Bold" }}>Faris</span>
-                </div>
-                <a href="mailto:onlyfarix@gmail.com" style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 13 }}>
-                  onlyfarix@gmail.com
-                </a>
-              </div>
-              <p style={{ color: "#fff", marginTop: 12, fontFamily: "FiraCode-Regular", fontSize: 13 }}>
-                Web designer and front-end developer based in Pakistan
-              </p>
-            </div>
-            <div>
-              <div style={{ fontWeight: 500, fontSize: 20, color: "#fff", fontFamily: "FiraCode-Medium", marginBottom: 10 }}>Media</div>
-              <div className="flex gap-4">
-                {[
-                  { src: "/icons/discord.svg", alt: "discord", href: "#" },
-                  { src: "/icons/email.svg", alt: "email", href: "mailto:onlyfarix@gmail.com" },
-                  { src: "/icons/github.svg", alt: "github", href: "https://github.com/farixdev" },
-                ].map(({ src, alt, href }) => (
-                  <a key={alt} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer"
-                    style={{ opacity: 0.7 }} className="hover:opacity-100 transition-opacity">
-                    <Image src={src} alt={alt} width={24} height={24} />
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-          <p style={{ color: "#abb2bf", textAlign: "center", fontFamily: "FiraCode-Regular", fontSize: 13 }}>
-            © Copyright 2025. Made by Faris
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
