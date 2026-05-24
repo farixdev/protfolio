@@ -3,26 +3,11 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "../components/Navbar";
+import { Footer } from "../components/Footer";
+import { MediaSidebar } from "../components/MediaSidebar";
 
 // ── Media Sidebar ─────────────────────────────────────────────────────────────
-function MediaSidebar() {
-  return (
-    <div className="hidden md:flex flex-col items-center fixed z-[60]"
-      style={{ left: 32, top: 0, gap: 12 }}>
-      <div style={{ width: 1, height: "28vh", backgroundColor: "#abb2bf", marginBottom: 4 }} />
-      <a href="#" style={{ opacity: 0.7 }} className="hover:opacity-100 transition-opacity">
-        <Image src="/icons/discord.svg" alt="discord" width={20} height={20} />
-      </a>
-      <a href="https://github.com/farixdev" target="_blank" rel="noreferrer"
-        style={{ opacity: 0.7 }} className="hover:opacity-100 transition-opacity">
-        <Image src="/icons/github.svg" alt="github" width={20} height={20} />
-      </a>
-      <a href="mailto:onlyfarix@gmail.com" style={{ opacity: 0.7 }} className="hover:opacity-100 transition-opacity">
-        <Image src="/icons/email.svg" alt="email" width={20} height={20} />
-      </a>
-    </div>
-  );
-}
+// Component imported from ../components/MediaSidebar
 
 // ── Button ────────────────────────────────────────────────────────────────────
 function Btn({ href, children }) {
@@ -78,73 +63,50 @@ function ProjectCard({ image, techs, name, desc, links }) {
 }
 
 // ── Footer ────────────────────────────────────────────────────────────────────
-function Footer() {
-  return (
-    <footer style={{ borderTop: "1px solid #abb2bf", paddingTop: 32, paddingBottom: 16 }}>
-      <div style={{ maxWidth: 1024, margin: "0 auto", padding: "0 24px" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 32, marginBottom: 40 }}>
-          <div>
-            <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <Image src="/icons/logo-header-01.png" alt="logo" width={26} height={26} />
-                <span style={{ color: "#fff", fontWeight: 700, fontFamily: "FiraCode-Bold" }}>Faris</span>
-              </div>
-              <a href="mailto:onlyfarix@gmail.com" style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 13, textDecoration: "none" }}>
-                onlyfarix@gmail.com
-              </a>
-            </div>
-            <p style={{ color: "#fff", marginTop: 12, fontFamily: "FiraCode-Regular", fontSize: 13 }}>
-              Web designer and front-end developer based in Pakistan
-            </p>
-          </div>
-          <div>
-            <div style={{ fontWeight: 500, fontSize: 20, color: "#fff", fontFamily: "FiraCode-Medium", marginBottom: 10 }}>Media</div>
-            <div style={{ display: "flex", gap: 16 }}>
-              {[
-                { src: "/icons/discord.svg", alt: "discord", href: "#" },
-                { src: "/icons/email.svg", alt: "email", href: "mailto:onlyfarix@gmail.com" },
-                { src: "/icons/github.svg", alt: "github", href: "https://github.com/farixdev" },
-              ].map(({ src, alt, href }) => (
-                <a key={alt} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer"
-                  style={{ opacity: 0.7 }} className="hover:opacity-100 transition-opacity">
-                  <Image src={src} alt={alt} width={24} height={24} />
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-        <p style={{ color: "#abb2bf", textAlign: "center", fontFamily: "FiraCode-Regular", fontSize: 13 }}>
-          © Copyright 2025. Made by Faris
-        </p>
-      </div>
-    </footer>
-  );
-}
+// Component imported from ../components/Footer
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 export default function Projects() {
-  const projects = [
+const projects = [
     {
-      image: "/icons/deplos.png",
-      techs: ["HTML", "CSS", "JavaScript"],
-      name: "Calculator",
-      desc: "Web Based Calculator",
-      links: [{ label: "Figma", href: "#" }, { label: "Live", href: "https://deplos.github.io" }, { label: "Github", href: "#" }],
+      image: "/icons/Hr-Web-Portal.png",
+   techs: ["Next.js", "NestJS", "MongoDB", "Tailwind CSS"],
+
+name: "HR Nexus",
+
+desc: "A modern HR management portal built to streamline employee management",
+      links: [{ label: "Figma", href: "https://www.figma.com/design/de9FmmVprHrJCfKnLJLo2s/HR-portal?node-id=0-1&t=QF4cZkCFRQjkSkDc-1" }, , { label: "Github", href: "https://github.com/farixdev/HR-Portal" }],
     },
     {
-      image: "/icons/E-book.png",
-      techs: ["C++"],
-      name: "E-book Reader",
-      desc: "Electronic book reader",
-      links: [{ label: "Live", href: "#" }, { label: "Github", href: "#" }],
+      image: "/icons/chat-app.png",
+      techs: ["Flutter", "Dart" , 'Firebase'],
+      name: "Chatify",
+      desc: "A real-time Flutter chat app powered by Firebase",
+      links: [{ label: "Github", href: "https://github.com/farixdev/chat-app" }],
     },
     {
-      image: "/icons/mapleads.png",
-      techs: ["Python", "PyQt5"],
-      name: "MapLeads",
-      desc: "A desktop application to extract leads from Google Maps",
-      links: [{ label: "Github", href: "#" }, { label: "Live", href: "#" }],
+      image: "/icons/insta_finder2.png",
+      techs: ["Python", "PyQt5" , 'Selenium'],
+      name: "InstaMap Scraper",
+
+desc: "An automation tool that discovers local businesses through Google Maps and extracts website and Instagram.",
+      links: [{ label: "Github", href: "https://github.com/farixdev/InstagramScrapper" }],
     },
+    {
+      image: "/icons/App-FStore.png",
+      techs: ["Flutter", "Dart" , 'Firebase'],
+      name: "F-Store",
+      desc: "A modern Flutter e-commerce app with a full shopping experience and powerful admin panel",
+      links: [{ label: "Github", href: "https://github.com/farixdev/shop" }],
+    },
+    {
+      image: "/icons/wordpress-jary.png",
+      techs: ["Wordpress",],
+      name: "Jaryinternational E-commerce Website",
+      desc: "A custom WordPress-based aviation e-commerce website built for a client",
+      links: [{ label: "Live", href: "https://jaryinternational.com/" }],
+    },
+    
   ];
 
   return (
