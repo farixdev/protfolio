@@ -46,18 +46,7 @@ export function Navbar({ active }) {
           ))}
         </nav>
 
-        {/* Hamburger */}
-        <button className="md:hidden flex flex-col gap-1.5 p-2" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
-          {[
-            menuOpen ? "rotate(45deg) translate(4px,4px)" : "none",
-            null,
-            menuOpen ? "rotate(-45deg) translate(4px,-4px)" : "none",
-          ].map((transform, i) =>
-            transform === null
-              ? <span key={i} className="block h-px w-6" style={{ backgroundColor: "#c470db", opacity: menuOpen ? 0 : 1 }} />
-              : <span key={i} className="block h-px w-6 transition-all duration-300" style={{ backgroundColor: "#c470db", transform }} />
-          )}
-        </button>
+     
       </div>
 
       {/* Mobile dropdown */}
