@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Navbar } from "./components/Navbar";
 
 // ── Dot grid — fixed pixel size, never stretches ─────────────────────────────
 function DotGrid({ cols = 5, rows = 5, size = 100 }) {
@@ -26,96 +27,23 @@ function DotGrid({ cols = 5, rows = 5, size = 100 }) {
   );
 }
 
-// ── Navbar ───────────────────────────────────────────────────────────────────
-function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const links = [
-    { href: "/", label: "home" },
-    { href: "/projects", label: "projects" },
-    { href: "/about-me", label: "about-me" },
-  ];
-
-  return (
-    <header
-      className="fixed top-0 left-0 w-full z-50 transition-all duration-300"
-      style={{
-        backgroundColor: scrolled ? "#282C33ee" : "#282C33",
-        backdropFilter: scrolled ? "blur(8px)" : "none",
-        borderBottom: scrolled ? "1px solid #abb2bf33" : "none",
-      }}
-    >
-      <div style={{ maxWidth: 1024, margin: "0 auto", padding: "0 24px", height: 64, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <Link href="/" className="flex items-center gap-2" style={{ textDecoration: "none" }}>
-          <Image src="/icons/logo-header-01.png" alt="logo" width={22} height={22} />
-          <span style={{ color: "#fff", fontFamily: "FiraCode-Bold", fontSize: 16 }}>Faris</span>
-        </Link>
-
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {links.map(({ href, label }) => (
-            <Link key={label} href={href} style={{ fontFamily: "FiraCode-Medium", color: "#9e9d9d", fontSize: 16, textDecoration: "none" }}
-              className="hover:text-white transition-colors duration-200">
-              <span style={{ color: "#c470db" }}>#</span>{label}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Hamburger */}
-        <button className="md:hidden flex flex-col gap-1.5 p-2" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
-          {[
-            menuOpen ? "rotate(45deg) translate(4px,4px)" : "none",
-            null,
-            menuOpen ? "rotate(-45deg) translate(4px,-4px)" : "none",
-          ].map((transform, i) =>
-            transform === null ? (
-              <span key={i} className="block h-px w-6" style={{ backgroundColor: "#c470db", opacity: menuOpen ? 0 : 1 }} />
-            ) : (
-              <span key={i} className="block h-px w-6 transition-all duration-300" style={{ backgroundColor: "#c470db", transform }} />
-            )
-          )}
-        </button>
-      </div>
-
-      {/* Mobile dropdown */}
-      <div className="md:hidden overflow-hidden transition-all duration-300"
-        style={{ maxHeight: menuOpen ? "200px" : "0", backgroundColor: "#1e2227" }}>
-        <nav className="flex flex-col px-6 py-4 gap-4">
-          {links.map(({ href, label }) => (
-            <Link key={label} href={href} onClick={() => setMenuOpen(false)}
-              style={{ fontFamily: "FiraCode-Medium", color: "#9e9d9d", fontSize: 16, textDecoration: "none" }}
-              className="hover:text-white transition-colors">
-              <span style={{ color: "#c470db" }}>#</span>{label}
-            </Link>
-          ))}
-        </nav>
-      </div>
-    </header>
-  );
-}
 
 // ── Left media sidebar — desktop only ────────────────────────────────────────
 function MediaSidebar() {
   return (
     <div className="hidden md:flex flex-col items-center fixed z-[60]"
-      style={{ left: 32, top: 0, gap: 12 }}>
+      style={{ left: 36, top: 0, gap: 12 }}>
       <div style={{ width: 1, height: "28vh", backgroundColor: "#abb2bf", marginBottom: 4 }} />
       <a href="#" style={{ opacity: 0.7 }} className="hover:opacity-100 transition-opacity">
-        <Image src="/icons/discord.svg" alt="discord" width={20} height={20} />
+        <Image src="/icons/discord.svg" alt="discord" width={25} height={25} />
       </a>
       <a href="https://github.com/farixdev" target="_blank" rel="noreferrer"
         style={{ opacity: 0.7 }} className="hover:opacity-100 transition-opacity">
-        <Image src="/icons/github.svg" alt="github" width={20} height={20} />
+        <Image src="/icons/github.svg" alt="github" width={25} height={25} />
       </a>
       <a href="mailto:onlyfarix@gmail.com" style={{ opacity: 0.7 }} className="hover:opacity-100 transition-opacity">
-        <Image src="/icons/email.svg" alt="email" width={20} height={20} />
+        <Image src="/icons/email.svg" alt="email" width={25} height={25} />
       </a>
     </div>
   );
@@ -163,14 +91,21 @@ function ProjectCard({ image, techs, name, desc, links }) {
         <Image src={image} alt={name} width={400} height={220}
           className="w-full object-cover" style={{ display: "block" }} />
       </div>
-      <ul className="flex flex-wrap gap-x-4 gap-y-1 px-3 py-2"
-        style={{ borderBottom: "1px solid #abb2bf", color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 13, listStyle: "none" }}>
+      <ul className="flex flex-wrap gap-x-4 gap-y-1"
+        style={{ 
+          borderBottom: "1px solid #abb2bf", 
+          color: "#abb2bf", 
+          fontFamily: "FiraCode-Regular", 
+          fontSize: 13, 
+          listStyle: "none",
+          padding: "10px 16px"
+        }}>
         {techs.map(t => <li key={t}>{t}</li>)}
       </ul>
-      <div className="p-4 flex flex-col gap-3 flex-1">
+      <div style={{ padding: "16px 16px", display: "flex", flexDirection: "column", gap: 12, flex: 1 }}>
         <div style={{ color: "#fff", fontSize: 20, fontWeight: 500 }}>{name}</div>
         <div style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14 }}>{desc}</div>
-        <div className="flex flex-wrap gap-2 mt-auto">
+        <div className="flex flex-wrap gap-2" style={{ marginTop: "auto" }}>
           {links.map(({ label, href }) => <Btn key={label} href={href}>{label} =&gt;</Btn>)}
         </div>
       </div>
@@ -198,11 +133,13 @@ function SkillBlock({ name, skills }) {
 export default function Home() {
   const projects = [
     {
-      image: "/icons/deplos.png",
-      techs: ["HTML", "CSS", "JavaScript"],
-      name: "Calculator",
-      desc: "Web Based Calculator",
-      links: [{ label: "Figma", href: "#" }, { label: "Live", href: "https://deplos.github.io" }, { label: "Github", href: "#" }],
+      image: "/icons/Hr-Web-Portal.png",
+   techs: ["Next.js", "NestJS", "MongoDB", "Tailwind CSS"],
+
+name: "HR Nexus",
+
+desc: "A modern HR management portal built to streamline employee management",
+      links: [{ label: "Figma", href: "https://www.figma.com/design/de9FmmVprHrJCfKnLJLo2s/HR-portal?node-id=0-1&t=QF4cZkCFRQjkSkDc-1" }, , { label: "Github", href: "https://github.com/farixdev/HR-Portal" }],
     },
     {
       image: "/icons/E-book.png",
@@ -229,27 +166,26 @@ export default function Home() {
 
   return (
     <div style={{ backgroundColor: "#282C33", minHeight: "100vh", color: "#fff" }}>
-      <Navbar />
+      <Navbar active="home" />
       <MediaSidebar />
 
       <main style={{ maxWidth: 1024, margin: "0 auto", padding: "100px 24px 0", display: "flex", flexDirection: "column", gap: 96 }}>
-
-        {/* ── HERO ── */}
-        <section className="flex flex-col md:flex-row items-center justify-between gap-10">
-          {/* Left text */}
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <h1 style={{ fontFamily: "FiraCode-SemiBold", fontSize: "clamp(24px,4vw,36px)", color: "#fff", fontWeight: 600, lineHeight: 1.35 }}>
-              Faris is a{" "}
-              <span style={{ color: "#c470db", fontFamily: "FiraCode-Medium" }}>web designer</span>
-              {" "}and{" "}
-              <span style={{ color: "#c470db", fontFamily: "FiraCode-Medium" }}>front-end</span>
-              {" "}developer
-            </h1>
-            <p style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", marginTop: 24, marginBottom: 28, fontSize: 15, lineHeight: 1.7 }}>
-              He crafts responsive websites where technologies meet creativity
-            </p>
-            <Btn href="#contacts">Contact ME =&gt;</Btn>
-          </div>
+{/* ── HERO ── */}
+<section className="flex flex-col md:flex-row items-center justify-between gap-10">
+  {/* Left text */}
+  <div style={{ flex: 1, minWidth: 0 }}>
+    <h1 style={{ fontFamily: "FiraCode-SemiBold", fontSize: "clamp(24px,4vw,36px)", color: "#fff", fontWeight: 600, lineHeight: 1.35 }}>
+      Faris {"is a "}{" "} <br />
+      <span style={{ color: "#c470db", fontFamily: "FiraCode-Medium" }}>Full-Stack Developer</span>
+      {" "}&{" "}
+      <span style={{ color: "#c470db", fontFamily: "FiraCode-Medium" }}>Automation Engineer</span>
+    </h1>
+    <p style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", marginTop: 24, marginBottom: 28, fontSize: 15, lineHeight: 1.7 }}>
+      I turn complex problems into clean, working software{" "}<br />
+      web apps, e-commerce platforms, and custom automation tools built for real business impact.
+    </p>
+    <Btn href="#contacts">Contact ME =&gt;</Btn>
+  </div>
 
           {/* Right illustration */}
           <div style={{ flex: 1, position: "relative", display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
@@ -264,16 +200,18 @@ export default function Home() {
                 className="w-full object-cover" style={{ display: "block" }} />
             </div>
 
-            {/* status badge */}
-            <div style={{
-              border: "1px solid #abb2bf", color: "#abb2bf", padding: "6px 14px",
-              fontFamily: "FiraCode-Regular", fontSize: 13,
-              display: "inline-flex", alignItems: "center", gap: 8,
-              position: "relative", zIndex: 5, top: -1, alignSelf: "flex-end",
-            }}>
-              <span style={{ width: 8, height: 8, borderRadius: "50%", backgroundColor: "#c470db", display: "inline-block" }} />
-              Open for new opportunities
-            </div>
+           
+    {/* status badge — now anchored to photo width */}
+    <div style={{
+      border: "1px solid #abb2bf", color: "#abb2bf", padding: "6px 14px",
+      fontFamily: "FiraCode-Regular", fontSize: 13,
+      display: "inline-flex", alignItems: "center", gap: 8,
+      width: "80%", boxSizing: "border-box",
+      justifyContent: "center",
+    }}>
+      <span style={{ width: 8, height: 8, borderRadius: "50%", backgroundColor: "#c470db", display: "inline-block" }} />
+      Open for new opportunities
+    </div>
 
             {/* dot grid — bottom right corner */}
             <div style={{ position: "absolute", bottom: -20, right: -10, zIndex: 0 }}>
@@ -282,28 +220,30 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── QUOTE ── */}
-        <figure style={{ border: "1px solid #abb2bf", margin: 0 }}>
-          <blockquote style={{ padding: "28px 32px", fontSize: "clamp(16px,2.5vw,22px)", fontWeight: 500, color: "#fff", fontFamily: "FiraCode-Medium" }}>
-            <span style={{ color: "#abb2bf", fontSize: 40, lineHeight: 0, verticalAlign: "-0.35em", marginRight: 8 }}>"</span>
-            My portfolio looks better than my life
-            <span style={{ color: "#abb2bf", fontSize: 40, lineHeight: 0, verticalAlign: "-0.35em", marginLeft: 8 }}>"</span>
-          </blockquote>
-        </figure>
+      {/* ── QUOTE ── */}
+<figure style={{ border: "1px solid #abb2bf", margin: "0 auto", maxWidth: 720 }}>
+  <blockquote style={{ padding: "28px 32px", fontSize: "clamp(16px,2.5vw,22px)", fontWeight: 500, color: "#fff", fontFamily: "FiraCode-Medium", textAlign: "center" }}>
+    <span style={{ color: "#abb2bf", fontSize: 40, lineHeight: 0, verticalAlign: "-0.35em", marginRight: 8 }}>"</span>
+    Pixel-perfect on the frontend. Questionable life choices on the backend.
+    <span style={{ color: "#abb2bf", fontSize: 40, lineHeight: 0, verticalAlign: "-0.35em", marginLeft: 8 }}>"</span>
+  </blockquote>
+</figure>
 
-        {/* ── PROJECTS ── */}
-        <section>
-          <div className="flex items-center justify-between flex-wrap gap-4" style={{ marginBottom: 40 }}>
-            <SectionHeading>projects</SectionHeading>
-            <Link href="/projects"
-              style={{ color: "#fff", textDecoration: "underline", fontFamily: "FiraCode-Regular", fontSize: 14 }}>
-              View all ~~&gt;
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {projects.map(p => <ProjectCard key={p.name} {...p} />)}
-          </div>
-        </section>
+{/* ── PROJECTS ── */}
+<section>
+  <div className="flex items-center justify-between flex-wrap gap-4" style={{ marginBottom: 40 }}>
+    <div style={{ marginBottom: -40 }}>
+      <SectionHeading>projects</SectionHeading>
+    </div>
+    <Link href="/projects"
+      style={{ color: "#fff", textDecoration: "underline", fontFamily: "FiraCode-Regular", fontSize: 14 }}>
+      View all ~~&gt;
+    </Link>
+  </div>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    {projects.map(p => <ProjectCard key={p.name} {...p} />)}
+  </div>
+</section>
 
         {/* ── SKILLS ── */}
         <section>
