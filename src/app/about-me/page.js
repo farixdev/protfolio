@@ -3,26 +3,11 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "../components/Navbar";
+import { Footer } from "../components/Footer";
+import { MediaSidebar } from "../components/MediaSidebar";
 
 // ── Media Sidebar ─────────────────────────────────────────────────────────────
-function MediaSidebar() {
-  return (
-    <div className="hidden md:flex flex-col items-center fixed z-[60]"
-      style={{ left: 32, top: 0, gap: 12 }}>
-      <div style={{ width: 1, height: "28vh", backgroundColor: "#abb2bf", marginBottom: 4 }} />
-      <a href="#" style={{ opacity: 0.7 }} className="hover:opacity-100 transition-opacity">
-        <Image src="/icons/discord.svg" alt="discord" width={20} height={20} />
-      </a>
-      <a href="https://github.com/farixdev" target="_blank" rel="noreferrer"
-        style={{ opacity: 0.7 }} className="hover:opacity-100 transition-opacity">
-        <Image src="/icons/github.svg" alt="github" width={20} height={20} />
-      </a>
-      <a href="mailto:onlyfarix@gmail.com" style={{ opacity: 0.7 }} className="hover:opacity-100 transition-opacity">
-        <Image src="/icons/email.svg" alt="email" width={20} height={20} />
-      </a>
-    </div>
-  );
-}
+// Component imported from ../components/MediaSidebar
 // ── Section heading ───────────────────────────────────────────────────────────
 function SectionHeading({ children }) {
   return (
@@ -50,58 +35,20 @@ function SkillBlock({ name, skills }) {
 }
 
 // ── Footer ────────────────────────────────────────────────────────────────────
-function Footer() {
-  return (
-    <footer style={{ borderTop: "1px solid #abb2bf", paddingTop: 32, paddingBottom: 16 }}>
-      <div style={{ maxWidth: 1024, margin: "0 auto", padding: "0 24px" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 32, marginBottom: 40 }}>
-          <div>
-            <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <Image src="/icons/logo-header-01.png" alt="logo" width={26} height={26} />
-                <span style={{ color: "#fff", fontWeight: 700, fontFamily: "FiraCode-Bold" }}>Faris</span>
-              </div>
-              <a href="mailto:onlyfarix@gmail.com" style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 13, textDecoration: "none" }}>
-                onlyfarix@gmail.com
-              </a>
-            </div>
-            <p style={{ color: "#fff", marginTop: 12, fontFamily: "FiraCode-Regular", fontSize: 13 }}>
-              Web designer and front-end developer based in Pakistan
-            </p>
-          </div>
-          <div>
-            <div style={{ fontWeight: 500, fontSize: 20, color: "#fff", fontFamily: "FiraCode-Medium", marginBottom: 10 }}>Media</div>
-            <div style={{ display: "flex", gap: 16 }}>
-              {[
-                { src: "/icons/discord.svg", alt: "discord", href: "#" },
-                { src: "/icons/email.svg", alt: "email", href: "mailto:onlyfarix@gmail.com" },
-                { src: "/icons/github.svg", alt: "github", href: "https://github.com/farixdev" },
-              ].map(({ src, alt, href }) => (
-                <a key={alt} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer"
-                  style={{ opacity: 0.7 }} className="hover:opacity-100 transition-opacity">
-                  <Image src={src} alt={alt} width={24} height={24} />
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-        <p style={{ color: "#abb2bf", textAlign: "center", fontFamily: "FiraCode-Regular", fontSize: 13 }}>
-          © Copyright 2025. Made by Faris
-        </p>
-      </div>
-    </footer>
-  );
-}
+// Component imported from ../components/Footer
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 export default function AboutMe() {
   const skills = [
-    { name: "Languages",  skills: ["C++", "JavaScript", "Python"] },
-    { name: "Databases",  skills: ["SQLite", "PostgreSQL"] },
-    { name: "Other",      skills: ["HTML", "CSS", "Tailwind", "Bootstrap"] },
-    { name: "Tools",      skills: ["VSCode", "NeoVim", "Figma", "Git & GitHub"] },
-    { name: "Frameworks", skills: ["React", "Next", "PyQt5", "SDL2"] },
-  ];
+  { name: "Languages",   skills: ["JavaScript", "Python", "Dart", "HTML5", "CSS3", "C++"] },
+  { name: "Frontend",    skills: ["React.js", "Next.js", "Flutter", "Tailwind CSS", "Bootstrap"] },
+  { name: "Backend",     skills: ["Node.js", "NestJS", "REST APIs"] },
+  { name: "Databases",   skills: ["MongoDB", "MySQL", "Firebase"] },
+  { name: "Additional",  skills: ["WordPress", "Shopify", "WooCommerce", "Elementor"] },
+  { name: "Automation",  skills: ["Python Scripting", "BeautifulSoup", "Selenium", "Task Scheduling"] },
+  { name: "Design",      skills: ["Photoshop", "Illustrator", "Figma"] },
+  { name: "DevOps",      skills: ["Git", "GitHub", "Linux CLI", "cPanel"] },
+];
 
   const facts = [
     "I like winter more than summer",
@@ -138,9 +85,9 @@ export default function AboutMe() {
           {/* Text */}
           <div style={{ flex: 1, minWidth: 260, display: "flex", flexDirection: "column", gap: 16 }}>
             {[
-              "I'm a self-taught front-end developer based in Lahore, Pakistan. I can develop responsive websites from scratch and raise them into modern user-friendly web experiences.",
-              "Transforming my creativity and knowledge into websites has been my passion for over two years. I have been helping various clients to establish their presence online.",
-              "I always strive to learn about the newest technologies and frameworks.",
+              "  I'm a full-stack developer and automation engineer based in Lahore, Pakistan, with 5+ years of experience building web applications, e-commerce platforms, and custom software tools that solve real business problems.",
+              "I work across the full stack — from React and Next.js frontends to Node.js backends, WordPress and Shopify stores, and Flutter mobile apps. When repetitive work slows teams down, I automate it with Python.",
+              "  Currently studying Software Engineering at Superior University, Lahore and building real things while I do it..",
             ].map((text, i) => (
               <p key={i} style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, lineHeight: 1.8 }}>
                 {text}
