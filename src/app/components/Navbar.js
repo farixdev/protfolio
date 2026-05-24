@@ -21,10 +21,9 @@ export function Navbar({ active }) {
 
   return (
     <header
-      className="fixed top-0 left-0 w-full z-50 transition-all duration-300"
+      className="fixed top-0 left-0 w-full z-50 "
       style={{
-        backgroundColor: scrolled ? "#282C33ee" : "#282C33",
-        backdropFilter: scrolled ? "blur(8px)" : "none",
+        backgroundColor: "#282C33",
         borderBottom: scrolled ? "1px solid #abb2bf33" : "none",
       }}
     >
