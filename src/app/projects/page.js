@@ -113,6 +113,15 @@ desc: "An automation tool that discovers local businesses through Google Maps an
       desc: "A desktop application that allows users to create local copies of websites for offline browsing",
       links: [{ label: "Github", href: "https://github.com/farixdev/SiteMirror" }],
     },
+
+    {
+      image: "/icons/kernelGhost.png",
+      techs: ["Python",],
+      name: "Kernel Ghost",
+      desc: "A command-line based simulation tool that mimics real system-level activity",
+      links: [{ label: "Github", href: "https://github.com/farixdev/kernelGhost" }],
+    },
+    
     
   ];
 
