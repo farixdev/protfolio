@@ -141,13 +141,12 @@ name: "HR Nexus",
 desc: "A modern HR management portal built to streamline employee management",
       links: [{ label: "Figma", href: "https://www.figma.com/design/de9FmmVprHrJCfKnLJLo2s/HR-portal?node-id=0-1&t=QF4cZkCFRQjkSkDc-1" }, , { label: "Github", href: "https://github.com/farixdev/HR-Portal" }],
     },
-    {
-      image: "/icons/insta_finder2.png",
-      techs: ["Python", "PyQt5" , 'Selenium'],
-      name: "InstaMap Scraper",
-
-desc: "An automation tool that discovers local businesses through Google Maps and extracts website and Instagram.",
-      links: [{ label: "Github", href: "https://github.com/farixdev/InstagramScrapper" }],
+     {
+      image: "/icons/siteMirror.png",
+      techs: ["Python", "Selenium" , 'BeautifulSoup' ,'pyqt5'],
+      name: "SiteMirror",
+      desc: "A desktop application that allows users to create local copies of websites for offline browsing",
+      links: [{ label: "Github", href: "https://github.com/farixdev/SiteMirror" }],
     },
     {
       image: "/icons/App-FStore.png",
