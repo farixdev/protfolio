@@ -229,7 +229,7 @@ const skills = [
 <figure style={{ border: "1px solid #abb2bf", margin: "0 auto", maxWidth: 720 }}>
   <blockquote style={{ padding: "28px 32px", fontSize: "clamp(16px,2.5vw,22px)", fontWeight: 500, color: "#fff", fontFamily: "FiraCode-Medium", textAlign: "center" }}>
     <span style={{ color: "#abb2bf", fontSize: 40, lineHeight: 0, verticalAlign: "-0.35em", marginRight: 8 }}>"</span>
-    Pixel-perfect on the frontend. Questionable life choices on the backend.
+    Behind every ‘It works’ lies a universe of unexplained miracles
     <span style={{ color: "#abb2bf", fontSize: 40, lineHeight: 0, verticalAlign: "-0.35em", marginLeft: 8 }}>"</span>
   </blockquote>
 </figure>
