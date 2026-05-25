@@ -121,6 +121,15 @@ desc: "An automation tool that discovers local businesses through Google Maps an
       desc: "A command-line based simulation tool that mimics real system-level activity",
       links: [{ label: "Github", href: "https://github.com/farixdev/kernelGhost" }],
     },
+
+    {
+      image: "/icons/thingsinever.png",
+      techs: ["Next.js", "NestJS", "MongoDB", "Tailwind CSS",],
+      name: "Things I Never Said",
+      desc: "An anonymous confession platform where people share the thoughts and words they never had the courage to say.",
+      links: [ { label: "Figma", href: "https://www.figma.com/design/KaO7WhtydVZvxO04tAMTHo/Things-I-never-said?node-id=0-1&t=bxciuK60A9leEAyG-1" } , { label: "Github", href: "https://github.com/farixdev/ThingsINeverSaid" }],
+    },
+    
     
     
   ];
