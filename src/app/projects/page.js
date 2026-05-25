@@ -106,6 +106,13 @@ desc: "An automation tool that discovers local businesses through Google Maps an
       desc: "A custom WordPress-based aviation e-commerce website built for a client",
       links: [{ label: "Live", href: "https://jaryinternational.com/" }],
     },
+    {
+      image: "/icons/siteMirror.png",
+      techs: ["Python", "Selenium" , 'BeautifulSoup' ,'pyqt5'],
+      name: "SiteMirror",
+      desc: "A desktop application that allows users to create local copies of websites for offline browsing",
+      links: [{ label: "Github", href: "https://github.com/farixdev/SiteMirror" }],
+    },
     
   ];
 
