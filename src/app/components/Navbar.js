@@ -34,10 +34,10 @@ export function Navbar({ active }) {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex" style={{ gap: 32, display: "flex" }}>
+        <nav className="flex items-center" style={{ gap: 16 }}>
           {links.map(({ href, label }) => (
             <Link key={label} href={href} style={{
-              fontFamily: "FiraCode-Medium", fontSize: 16, textDecoration: "none",
+              fontFamily: "FiraCode-Medium", fontSize: "clamp(10px, 2.5vw, 16px)", textDecoration: "none",
               color: active === label ? "#fff" : "#9e9d9d",
             }}
               className="hover:text-white transition-colors duration-200">
@@ -54,9 +54,11 @@ export function Navbar({ active }) {
         style={{ maxHeight: menuOpen ? "200px" : "0", backgroundColor: "#1e2227" }}>
         <nav style={{ display: "flex", flexDirection: "column", padding: "16px 24px", gap: 16 }}>
           {links.map(({ href, label }) => (
-            <Link key={label} href={href} onClick={() => setMenuOpen(false)}
-              style={{ fontFamily: "FiraCode-Medium", color: "#9e9d9d", fontSize: 16, textDecoration: "none" }}
-              className="hover:text-white transition-colors">
+            <Link key={label} href={href} style={{
+  fontFamily: "FiraCode-Medium", textDecoration: "none",
+  color: active === label ? "#fff" : "#9e9d9d",
+}}
+className="text-xs md:text-base hover:text-white transition-colors duration-200">
               <span style={{ color: "#c470db" }}>#</span>{label}
             </Link>
           ))}
