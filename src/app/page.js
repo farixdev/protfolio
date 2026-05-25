@@ -191,7 +191,7 @@ const skills = [
     </p>
     <Btn href="#contacts">Contact ME =&gt;</Btn>
   </div>
-
+fa
           {/* Right illustration */}
           <div style={{ flex: 1, position: "relative", display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
             {/* outline logo — top-left of the image box */}
@@ -318,19 +318,19 @@ const skills = [
                 Message me here
               </h3>
               <div className="flex flex-col gap-4">
-                <a href="#" className="flex items-center gap-3"
+                <a href="https://www.instagram.com/farisxdev" className="flex items-center gap-3"
                   style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, textDecoration: "none" }}
                   onMouseEnter={e => e.currentTarget.style.color = "#fff"}
                   onMouseLeave={e => e.currentTarget.style.color = "#abb2bf"}>
-                  <Image src="/icons/instagram-01-01.svg" alt="instagram" width={26} height={26} />
-                  faris.dev.
+                  <Image src="/icons/instagram-01-01.svg" alt="instagram" width={24} height={24} />
+                  farisxdev
                 </a>
-                <a href="mailto:onlyfarix@gmail.com" className="flex items-center gap-3"
+                <a href="mailto:farisxdev@gmail.com" className="flex items-center gap-3"
                   style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, textDecoration: "none" }}
                   onMouseEnter={e => e.currentTarget.style.color = "#fff"}
                   onMouseLeave={e => e.currentTarget.style.color = "#abb2bf"}>
                   <Image src="/icons/email.svg" alt="email" width={22} height={22} />
-                  onlyfarix@gmail.com
+                  farisxdev@gmail.com
                 </a>
               </div>
             </div>
