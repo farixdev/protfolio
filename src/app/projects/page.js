@@ -123,7 +123,7 @@ desc: "An automation tool that discovers local businesses through Google Maps an
     },
 
     {
-      image: "/icons/thingsinever.png",
+      image: "/icons/thingsineversaid.png",
       techs: ["Next.js", "NestJS", "MongoDB", "Tailwind CSS",],
       name: "Things I Never Said",
       desc: "An anonymous confession platform where people share the thoughts and words they never had the courage to say.",
