@@ -191,7 +191,7 @@ const skills = [
     </p>
     <Btn href="#contacts">Contact ME =&gt;</Btn>
   </div>
-fa
+
           {/* Right illustration */}
           <div style={{ flex: 1, position: "relative", display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
             {/* outline logo — top-left of the image box */}
