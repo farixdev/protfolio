@@ -300,7 +300,7 @@ const skills = [
             <Btn href="/about-me">View all -&gt;</Btn>
           </div>
           <div style={{ flexShrink: 0, width: "100%", maxWidth: 380 }} className="md:w-auto">
-            <Image src="/icons/image_hoodie2.png" alt="Faris" width={380} height={420}
+            <Image src="/icons/standing.png" alt="Faris" width={380} height={420}
               className="w-full object-cover" style={{ display: "block", borderBottom: "2px solid #c470db" }} />
           </div>
         </section>
