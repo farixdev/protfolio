@@ -200,7 +200,7 @@ const skills = [
 
             {/* hero photo */}
             <div style={{ position: "relative", zIndex: 2, borderBottom: "2px solid #c470db", width: "100%", maxWidth: 380 }}>
-              <Image src="/icons/hero-3.png" alt="Faris" width={380} height={420}
+              <Image src="/icons/hero4.png" alt="Faris" width={380} height={420}
                 className="w-full object-cover" style={{ display: "block" }} />
             </div>
 
