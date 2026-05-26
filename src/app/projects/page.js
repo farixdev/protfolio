@@ -131,7 +131,7 @@ desc: "An automation tool that discovers local businesses through Google Maps an
     },
 
       {
-      image: "/icons/drift.png",
+      image: "/icons/drift2.png",
       techs: ["Python", "PyQt5", "Groq Ai", "Selenium",],
       name: "drift.jobs",
       desc: " Desktop app that parses your resume, scrapes job boards, and scores listings with AI",
