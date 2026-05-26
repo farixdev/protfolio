@@ -108,7 +108,7 @@ desc: "An automation tool that discovers local businesses through Google Maps an
     },
     {
       image: "/icons/siteMirror.png",
-      techs: ["Python", "Selenium" , 'BeautifulSoup' ,'pyqt5'],
+      techs: ["Python", "Selenium" , 'BeautifulSoup' ,'PyQt5'],
       name: "SiteMirror",
       desc: "A desktop application that allows users to create local copies of websites for offline browsing",
       links: [{ label: "Github", href: "https://github.com/farixdev/SiteMirror" }],
@@ -128,6 +128,14 @@ desc: "An automation tool that discovers local businesses through Google Maps an
       name: "Things I Never Said",
       desc: "An anonymous confession platform where people share the thoughts and words they never had the courage to say.",
       links: [ { label: "Figma", href: "https://www.figma.com/design/KaO7WhtydVZvxO04tAMTHo/Things-I-never-said?node-id=0-1&t=bxciuK60A9leEAyG-1" } , { label: "Github", href: "https://github.com/farixdev/ThingsINeverSaid" }],
+    },
+
+      {
+      image: "/icons/drift.png",
+      techs: ["Python", "PyQt5", "Groq Ai", "Selenium",],
+      name: "drift.jobs",
+      desc: " Desktop app that parses your resume, scrapes job boards, and scores listings with AI",
+      links: [ { label: "Github", href: "https://github.com/farixdev/Drift.jobs" }],
     },
     
     
