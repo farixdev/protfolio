@@ -78,7 +78,7 @@ export default function AboutMe() {
         <section style={{ display: "flex", flexWrap: "wrap", gap: 48, alignItems: "flex-start", justifyContent: "space-between" }}>
           {/* Image */}
           <div style={{ flexShrink: 0, width: "100%", maxWidth: 340 }}>
-            <Image src="/icons/image_hoodie.png" alt="Faris" width={340} height={400}
+            <Image src="/icons/image_hoodie2.png" alt="Faris" width={340} height={400}
               className="w-full object-cover" style={{ display: "block", borderBottom: "2px solid #c470db" }} />
           </div>
 
