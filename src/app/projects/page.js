@@ -137,6 +137,16 @@ desc: "An automation tool that discovers local businesses through Google Maps an
       desc: " Desktop app that parses your resume, scrapes job boards, and scores listings with AI",
       links: [ { label: "Github", href: "https://github.com/farixdev/Drift.jobs" }],
     },
+
+
+      {
+      image: "/icons/mapharvest.png",
+      techs: ["Python", "PyQt5", "Selenium",],
+      name: "MapHarvest",
+      desc: "Desktop app that scrapes Google Maps business listings and exports names, ratings, contacts & more to CSV",
+      links: [ { label: "Github", href: "https://github.com/farixdev/MapHarvest" }],
+    },
+    
     
     
     
