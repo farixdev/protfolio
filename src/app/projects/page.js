@@ -78,7 +78,7 @@ desc: "A modern HR management portal built to streamline employee management",
       links: [{ label: "Figma", href: "https://www.figma.com/design/de9FmmVprHrJCfKnLJLo2s/HR-portal?node-id=0-1&t=QF4cZkCFRQjkSkDc-1" }, , { label: "Github", href: "https://github.com/farixdev/HRNexus" }],
     },
     {
-      image: "/icons/chat-app.png",
+      image: "/icons/chatapp.png",
       techs: ["Flutter", "Dart" , 'Firebase'],
       name: "Chatify",
       desc: "A real-time Flutter chat app powered by Firebase",
@@ -100,7 +100,7 @@ desc: "An automation tool that discovers local businesses through Google Maps an
       links: [{ label: "Github", href: "https://github.com/farixdev/shop" }],
     },
     {
-      image: "/icons/wordpress-jary.png",
+      image: "/icons/wordpress2.png",
       techs: ["Wordpress",],
       name: "Jaryinternational E-commerce Website",
       desc: "A custom WordPress-based aviation e-commerce website built for a client",
@@ -123,7 +123,7 @@ desc: "An automation tool that discovers local businesses through Google Maps an
     },
 
     {
-      image: "/icons/thingsineversaid.png",
+      image: "/icons/thingsineversaid2.png",
       techs: ["Next.js", "NestJS", "MongoDB", "Tailwind CSS",],
       name: "Things I Never Said",
       desc: "An anonymous confession platform where people share the thoughts and words they never had the courage to say.",
