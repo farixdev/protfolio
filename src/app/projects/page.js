@@ -176,20 +176,7 @@ export default function Projects() {
         },
       ],
     },
-    {
-      image: "/icons/App-FStore.png",
-      techs: ["Flutter", "Dart", "Firebase"],
-      name: "F-Store",
-      desc: "A modern Flutter e-commerce app with a full shopping experience and powerful admin panel",
-      links: [{ label: "Github", href: "https://github.com/farixdev/shop" }],
-    },
-    {
-      image: "/icons/wordpress2.png",
-      techs: ["Wordpress"],
-      name: "Jaryinternational E-commerce Website",
-      desc: "A custom WordPress-based aviation e-commerce website built for a client",
-      links: [{ label: "Live", href: "https://jaryinternational.com/" }],
-    },
+
     {
       image: "/icons/siteMirror.png",
       techs: ["Python", "Selenium", "BeautifulSoup", "PyQt5"],
@@ -265,22 +252,7 @@ export default function Projects() {
     },
 
     
-    {
-      image: "/icons/Aegis-waf.png",
-      techs: [
-        "Python",
-        "Flask",
-        "HTML5",
-        "CSS3",
-        "JavaScript",
-        "Jinja2",
-        "SQLite",
-        "Socket.IO",
-      ],
-      name: "Class Watch",
-      desc: "AI-powered room occupancy and session monitoring for classrooms, meetings, and offices.",
-      links: [],
-    },
+    
   ];
 
   return (
