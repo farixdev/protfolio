@@ -1,8 +1,14 @@
 import "./globals.css";
+import { SITE_URL, pageMetadata } from "./seo";
 
 export const metadata = {
-  title: "Faris | Portfolio",
-  description: "Web designer and front-end developer based in Pakistan",
+  metadataBase: new URL(SITE_URL),
+  ...pageMetadata({
+    title: "Faris — Full-Stack Developer & Automation Engineer",
+    description:
+      "Full-stack developer and automation engineer in Lahore, Pakistan. I build web apps, e-commerce platforms, and Python automation tools for real business impact.",
+    path: "/",
+  }),
   icons: {
     icon: "/icons/logo-header-01.png",
   },

@@ -87,7 +87,7 @@ export default function AboutMe() {
             {[
               "  I'm a full-stack developer and automation engineer based in Lahore, Pakistan, with 5+ years of experience building web applications, e-commerce platforms, and custom software tools that solve real business problems.",
               "I work across the full stack — from React and Next.js frontends to Node.js backends, WordPress and Shopify stores, and Flutter mobile apps. When repetitive work slows teams down, I automate it with Python.",
-              "  Currently studying Software Engineering at Superior University, Lahore and building real things while I do it..",
+              "  Currently studying Software Engineering at Superior University, Lahore — and building real things while I do it.",
             ].map((text, i) => (
               <p key={i} style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, lineHeight: 1.8 }}>
                 {text}

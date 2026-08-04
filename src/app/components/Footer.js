@@ -24,11 +24,12 @@ export function Footer() {
             <div style={{ fontWeight: 500, fontSize: 20, color: "#fff", fontFamily: "FiraCode-Medium", marginBottom: 10 }}>Media</div>
             <div className="flex gap-4">
               {[
-                { src: "/icons/discord.svg", alt: "discord", href: "#" },
+                { src: "/icons/instagram-01-01.svg", alt: "instagram", href: "https://www.instagram.com/farisxdev" },
+                { src: "/icons/linkedin.svg", alt: "linkedin", href: "https://www.linkedin.com/in/farisxdev/" },
                 { src: "/icons/email.svg", alt: "email", href: "mailto:farisxdev@gmail.com" },
-                { src: "/icons/github.svg", alt: "github", href: "https://github.com/farixdev" },
               ].map(({ src, alt, href }) => (
-                <a key={alt} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer"
+                <a key={alt} href={href} target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                   style={{ opacity: 0.7 }} className="hover:opacity-100 transition-opacity">
                   <Image src={src} alt={alt} width={24} height={24} />
                 </a>
@@ -37,7 +38,7 @@ export function Footer() {
           </div>
         </div>
         <p style={{ color: "#abb2bf", textAlign: "center", fontFamily: "FiraCode-Regular", fontSize: 13 }}>
-          © Copyright 2025. Made by Faris
+          © 2026 Faris
         </p>
       </div>
     </footer>

@@ -143,7 +143,7 @@ desc: "A modern HR management portal built to streamline employee management",
     },
      {
       image: "/icons/siteMirror.png",
-      techs: ["Python", "Selenium" , 'BeautifulSoup' ,'pyqt5'],
+      techs: ["Python", "Selenium" , 'BeautifulSoup' ,'PyQt5'],
       name: "SiteMirror",
       desc: "A desktop application that allows users to create local copies of websites for offline browsing",
       links: [{ label: "Github", href: "https://github.com/farixdev/SiteMirror" }],
@@ -179,16 +179,16 @@ const skills = [
   {/* Left text */}
   <div style={{ flex: 1, minWidth: 0 }}>
     <h1 style={{ fontFamily: "FiraCode-SemiBold", fontSize: "clamp(24px,4vw,36px)", color: "#fff", fontWeight: 600, lineHeight: 1.35 }}>
-      Faris {"is a "}{" "} <br />
+      Faris is a <br />
       <span style={{ color: "#c470db", fontFamily: "FiraCode-Medium" }}>Full-Stack Developer</span>
       {" "}&{" "}
       <span style={{ color: "#c470db", fontFamily: "FiraCode-Medium" }}>Automation Engineer</span>
     </h1>
     <p style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", marginTop: 24, marginBottom: 28, fontSize: 15, lineHeight: 1.7 }}>
-      I turn complex problems into clean, working software{" "}<br />
+      I turn complex problems into clean, working software —{" "}<br />
       web apps, e-commerce platforms, and custom automation tools built for real business impact.
     </p>
-    <Btn href="#contacts">Contact ME =&gt;</Btn>
+    <Btn href="#contacts">Contact Me =&gt;</Btn>
   </div>
 
           {/* Right illustration */}
@@ -280,7 +280,7 @@ const skills = [
         {/* ── ABOUT ── */}
         <section className="flex flex-col md:flex-row gap-10 justify-between items-start">
           <div style={{ flex: 1, minWidth: 0 }}>
-            <SectionHeading>about</SectionHeading>
+            <SectionHeading>about-me</SectionHeading>
             <div className="flex flex-col gap-4" style={{ marginBottom: 32 }}>
              <p style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, lineHeight: 1.8 }}>
   I'm a full-stack developer and automation engineer based in Lahore, Pakistan, 
@@ -310,18 +310,25 @@ const skills = [
           <SectionHeading>contacts</SectionHeading>
           <div className="flex flex-col sm:flex-row gap-10 justify-between " style={{ alignItems: "flex-start" }}>
             <p style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, lineHeight: 1.8, maxWidth: 420 }}>
-              I'm interested in freelance opportunities. However, if you have other requests or questions, don't hesitate to contact me.
+              Building something? I take on freelance web, e-commerce, and automation work — email me the problem, not the spec.
             </p>
             <div style={{ border: "1px solid #abb2bf", padding: 20, minWidth: 240, flexShrink: 0 ,  alignSelf: "flex-start"}}>
               <h3 style={{ fontWeight: 600, color: "#fff", fontFamily: "FiraCode-Bold", marginBottom: 16, fontSize: 15 }}>
                 Message me here
               </h3>
               <div className="flex flex-col gap-4">
-                <a href="https://www.instagram.com/farisxdev" className="flex items-center gap-3"
+                <a href="https://www.instagram.com/farisxdev" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3"
                   style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, textDecoration: "none" }}
                   onMouseEnter={e => e.currentTarget.style.color = "#fff"}
                   onMouseLeave={e => e.currentTarget.style.color = "#abb2bf"}>
                   <Image src="/icons/instagram-01-01.svg" alt="instagram" width={24} height={24} />
+                  farisxdev
+                </a>
+                <a href="https://www.linkedin.com/in/farisxdev/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3"
+                  style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, textDecoration: "none" }}
+                  onMouseEnter={e => e.currentTarget.style.color = "#fff"}
+                  onMouseLeave={e => e.currentTarget.style.color = "#abb2bf"}>
+                  <Image src="/icons/linkedin.svg" alt="linkedin" width={24} height={24} />
                   farisxdev
                 </a>
                 <a href="mailto:farisxdev@gmail.com" className="flex items-center gap-3"

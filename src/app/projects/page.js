@@ -34,6 +34,25 @@ function Btn({ href, children }) {
   );
 }
 
+// ── Non-clickable badge for projects without public links ─────────────────────
+function PrivateBadge() {
+  return (
+    <span
+      style={{
+        display: "inline-block",
+        fontFamily: "FiraCode-Regular",
+        padding: "8px 16px",
+        border: "1px solid #abb2bf",
+        color: "#abb2bf",
+        fontSize: 14,
+        cursor: "default",
+      }}
+    >
+      Private build — demo on request
+    </span>
+  );
+}
+
 // ── Section heading ───────────────────────────────────────────────────────────
 function SectionHeading({ children }) {
   return (
@@ -128,11 +147,13 @@ function ProjectCard({ image, techs, name, desc, links }) {
             marginTop: "auto",
           }}
         >
-          {links.map(({ label, href }) => (
-            <Btn key={label} href={href}>
-              {label} =&gt;
-            </Btn>
-          ))}
+          {links.length > 0 ? (
+            links.map(({ label, href }) => (
+              <Btn key={label} href={href}>{label} =&gt;</Btn>
+            ))
+          ) : (
+            <PrivateBadge />
+          )}
         </div>
       </div>
     </div>
@@ -151,7 +172,7 @@ export default function Projects() {
 
       name: "Calora AI Portal",
 
-      desc: "A modern HR management portal built to streamline employee management and payroll system",
+      desc: "An HR and payroll portal built on PostgreSQL — employee management with an automated payroll system.",
       links: [],
     },
     {
@@ -168,7 +189,7 @@ export default function Projects() {
       techs: ["Python", "PyQt5", "Selenium"],
       name: "InstaMap Scraper",
 
-      desc: "An automation tool that discovers local businesses through Google Maps and extracts website and Instagram.",
+      desc: "An automation tool that discovers local businesses through Google Maps and extracts website URLs and Instagram handles.",
       links: [
         {
           label: "Github",
@@ -216,7 +237,7 @@ export default function Projects() {
 
     {
       image: "/icons/drift2.png",
-      techs: ["Python", "PyQt5", "Groq Ai", "Selenium"],
+      techs: ["Python", "PyQt5", "Groq AI", "Selenium"],
       name: "drift.jobs",
       desc: " Desktop app that parses your resume, scrapes job boards, and scores listings with AI",
       links: [
@@ -263,7 +284,7 @@ export default function Projects() {
         "Win32 API",
       ],
       name: "Air Sketch",
-      desc: "Draw on screen with hand gestures a webcam + MediaPipe tracker turns finger poses into ink rendered over any app. Auto-refines wobbly shapes into clean circles/rects/lines, smooths handwriting without reshaping it, and supports gesture-based undo/redo, color picking, and a dwell-activated HUD.",
+      desc: "Draw on screen with hand gestures — a webcam + MediaPipe tracker turns finger poses into ink rendered over any app. Auto-refines wobbly shapes into clean circles/rects/lines, smooths handwriting without reshaping it, and supports gesture-based undo/redo, color picking, and a dwell-activated HUD.",
       links: [],
     },
 
