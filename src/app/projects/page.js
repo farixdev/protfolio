@@ -251,8 +251,21 @@ export default function Projects() {
       links: [],
     },
 
-    
-    
+    {
+      image: "/icons/air-sketch.png",
+      techs: [
+        "Python",
+        "MediaPipe",
+        "OpenCV",
+        "NumPy",
+        "CustomTkinter",
+        "SQLite",
+        "Win32 API",
+      ],
+      name: "Air Sketch",
+      desc: "Draw on screen with hand gestures a webcam + MediaPipe tracker turns finger poses into ink rendered over any app. Auto-refines wobbly shapes into clean circles/rects/lines, smooths handwriting without reshaping it, and supports gesture-based undo/redo, color picking, and a dwell-activated HUD.",
+      links: [],
+    },
   ];
 
   return (
