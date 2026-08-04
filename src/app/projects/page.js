@@ -266,6 +266,15 @@ export default function Projects() {
       desc: "Draw on screen with hand gestures a webcam + MediaPipe tracker turns finger poses into ink rendered over any app. Auto-refines wobbly shapes into clean circles/rects/lines, smooths handwriting without reshaping it, and supports gesture-based undo/redo, color picking, and a dwell-activated HUD.",
       links: [],
     },
+
+    {
+      image: "/icons/Kasoti.png",
+      techs: ["JavaScript", "HTML5", "CSS3", "localStorage"],
+      name: "Kasoti",
+      desc: "A 20-questions mind-reading game with a real Bayesian reasoning engine — it tracks probability across 348 things, picks each question by information gain, and shows a live 'AI's mind' panel of its uncertainty and top guesses. Learns from wrong guesses and gets sharper the more you play.",
+
+      links: [],
+    },
   ];
 
   return (
