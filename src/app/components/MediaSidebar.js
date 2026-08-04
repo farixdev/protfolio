@@ -13,7 +13,7 @@ export function MediaSidebar() {
         style={{ opacity: 0.7 }} className="hover:opacity-100 transition-opacity">
         <Image src="/icons/github.svg" alt="github" width={25} height={25} />
       </a>
-      <a href="mailto:onlyfarix@gmail.com" style={{ opacity: 0.7 }} className="hover:opacity-100 transition-opacity">
+      <a href="mailto:farisxdev@gmail.com" style={{ opacity: 0.7 }} className="hover:opacity-100 transition-opacity">
         <Image src="/icons/email.svg" alt="email" width={25} height={25} />
       </a>
     </div>

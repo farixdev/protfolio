@@ -25,7 +25,7 @@ export function Footer() {
             <div className="flex gap-4">
               {[
                 { src: "/icons/discord.svg", alt: "discord", href: "#" },
-                { src: "/icons/email.svg", alt: "email", href: "mailto:onlyfarix@gmail.com" },
+                { src: "/icons/email.svg", alt: "email", href: "mailto:farisxdev@gmail.com" },
                 { src: "/icons/github.svg", alt: "github", href: "https://github.com/farixdev" },
               ].map(({ src, alt, href }) => (
                 <a key={alt} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer"
