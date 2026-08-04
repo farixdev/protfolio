@@ -275,6 +275,22 @@ export default function Projects() {
 
       links: [],
     },
+
+    {
+      image: "/icons/fiona.png",
+      techs: [
+        "Python",
+        "OpenAI Realtime API",
+        "Twilio",
+        "pywebview",
+        "SQLite",
+        "WebSockets",
+      ],
+      name: "Fiona",
+      desc: "A desktop AI voice-calling studio that answers and places real phone calls by bridging Twilio's telephony to OpenAI's Realtime speech-to-speech API. Handles inbound/outbound campaigns, per-call transcription and lead extraction, exact usage-based cost tracking, and clock-accurate interruption handling across the audio bridge.",
+
+      links: [],
+    },
   ];
 
   return (
