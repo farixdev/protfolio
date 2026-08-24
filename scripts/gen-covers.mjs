@@ -43,6 +43,8 @@ const GLYPHS = {
     <circle cx="32" cy="32" r="3.4" fill="${PURPLE}" stroke="none"/></g>`,
   shield: `<g fill="none" stroke="${PURPLE}" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
     <path d="M32 6 L55 15 V31 Q55 48 32 59 Q9 48 9 31 V15 Z"/><path d="M23 32 l6 6 l12 -14"/></g>`,
+  terminal: `<g fill="none" stroke="${PURPLE}" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="6" y="12" width="52" height="40" rx="5"/><path d="M16 27 l9 7 l-9 7"/><line x1="31" y1="41" x2="45" y2="41"/></g>`,
 };
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");

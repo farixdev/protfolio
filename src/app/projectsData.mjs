@@ -7,8 +7,8 @@ export const CATEGORIES = [
   {
     key: "ai",
     label: "ai-agents",
-    title: "AI & Voice Agents",
-    blurb: "Real-time voice, vision, and language systems that do actual work.",
+    title: "AI & Agents",
+    blurb: "Voice agents, LLM copilots, and reasoning engines.",
     glyph: "waveform",
     projects: [
       {
@@ -35,10 +35,10 @@ export const CATEGORIES = [
         featured: true,
       },
       {
-        slug: "classwatch",
-        name: "ClassWatch",
-        techs: ["Python", "Django", "YOLOv8", "OpenCV"],
-        desc: "AI room monitoring for campuses and offices: connects to CCTV / RTSP or webcams, counts occupancy with YOLO, and detects when a session actually starts, ends, or goes unattended against the schedule.",
+        slug: "kasoti",
+        name: "Kasoti",
+        techs: ["JavaScript", "Bayesian", "HTML5"],
+        desc: "A 20-questions mind-reading game with a real Bayesian reasoning engine — it tracks probability across 348 things, picks each question by information gain, and shows a live view of its own thinking as it narrows in.",
         links: [],
       },
     ],
@@ -140,10 +140,17 @@ export const CATEGORIES = [
   {
     key: "vision",
     label: "vision",
-    title: "Vision & Interaction",
-    blurb: "Computer vision that reads your hands and paints on the screen.",
+    title: "Computer Vision",
+    blurb: "Camera-driven interfaces — hand tracking and room monitoring.",
     glyph: "eye",
     projects: [
+      {
+        slug: "classwatch",
+        name: "ClassWatch",
+        techs: ["Python", "Django", "YOLOv8", "OpenCV"],
+        desc: "AI room monitoring for campuses and offices: connects to CCTV / RTSP or webcams, counts occupancy with YOLO, and detects when a session actually starts, ends, or goes unattended against the schedule.",
+        links: [],
+      },
       {
         slug: "airsketch",
         name: "Air Sketch",
@@ -162,11 +169,11 @@ export const CATEGORIES = [
     ],
   },
   {
-    key: "security",
-    label: "security",
-    title: "Security & Systems",
-    blurb: "Low-level builds — firewalls, mining engines, reasoning games.",
-    glyph: "shield",
+    key: "systems",
+    label: "systems",
+    title: "Systems & Experiments",
+    blurb: "Low-level, for-the-craft builds — a web firewall and a mining engine.",
+    glyph: "terminal",
     projects: [
       {
         slug: "aegis",
@@ -179,14 +186,7 @@ export const CATEGORIES = [
         slug: "bitmine",
         name: "Bitmine",
         techs: ["Python", "SHA-256d", "Tkinter"],
-        desc: "A SHA-256d Bitcoin mining engine built to make the process visible — runs on a private regtest chain so you can watch blocks get found, with no profit theater.",
-        links: [],
-      },
-      {
-        slug: "kasoti",
-        name: "Kasoti",
-        techs: ["JavaScript", "Bayesian", "HTML5"],
-        desc: "A 20-questions mind-reading game with a real Bayesian reasoning engine — it tracks probability across 348 things and shows a live view of its own thinking as it narrows in.",
+        desc: "A personal SHA-256d Bitcoin mining engine built to make the process visible — it runs on a private regtest chain so you can watch blocks get found, with no profit theater. A flight simulator, not an airplane.",
         links: [],
       },
     ],

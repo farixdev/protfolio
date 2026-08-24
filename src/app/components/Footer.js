@@ -1,5 +1,12 @@
 "use client";
 import Image from "next/image";
+import { FiInstagram, FiLinkedin, FiMail } from "react-icons/fi";
+
+const SOCIAL = [
+  { Icon: FiInstagram, label: "instagram", href: "https://www.instagram.com/farisxdev" },
+  { Icon: FiLinkedin, label: "linkedin", href: "https://www.linkedin.com/in/farisxdev/" },
+  { Icon: FiMail, label: "email", href: "mailto:farisxdev@gmail.com" },
+];
 
 export function Footer() {
   return (
@@ -23,15 +30,12 @@ export function Footer() {
           <div>
             <div style={{ fontWeight: 500, fontSize: 20, color: "#fff", fontFamily: "FiraCode-Medium", marginBottom: 10 }}>Media</div>
             <div className="flex gap-4">
-              {[
-                { src: "/icons/instagram-01-01.svg", alt: "instagram", href: "https://www.instagram.com/farisxdev" },
-                { src: "/icons/linkedin.svg", alt: "linkedin", href: "https://www.linkedin.com/in/farisxdev/" },
-                { src: "/icons/email.svg", alt: "email", href: "mailto:farisxdev@gmail.com" },
-              ].map(({ src, alt, href }) => (
-                <a key={alt} href={href} target={href.startsWith("http") ? "_blank" : undefined}
+              {SOCIAL.map(({ Icon, label, href }) => (
+                <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined}
                   rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  style={{ opacity: 0.7 }} className="hover:opacity-100 transition-opacity">
-                  <Image src={src} alt={alt} width={24} height={24} />
+                  aria-label={label}
+                  style={{ color: "#abb2bf", opacity: 0.7 }} className="hover:opacity-100 transition-opacity">
+                  <Icon size={22} aria-hidden="true" />
                 </a>
               ))}
             </div>

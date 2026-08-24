@@ -6,6 +6,7 @@ import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { MediaSidebar } from "./components/MediaSidebar";
 import { FEATURED } from "./projectsData.mjs";
+import { FiInstagram, FiLinkedin, FiMail } from "react-icons/fi";
 
 // ── Dot grid — fixed pixel size, never stretches ─────────────────────────────
 function DotGrid({ cols = 5, rows = 5, size = 100 }) {
@@ -314,21 +315,21 @@ const skills = [
                   style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, textDecoration: "none" }}
                   onMouseEnter={e => e.currentTarget.style.color = "#fff"}
                   onMouseLeave={e => e.currentTarget.style.color = "#abb2bf"}>
-                  <Image src="/icons/instagram-01-01.svg" alt="instagram" width={24} height={24} />
+                  <FiInstagram size={20} aria-hidden="true" />
                   farisxdev
                 </a>
                 <a href="https://www.linkedin.com/in/farisxdev/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3"
                   style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, textDecoration: "none" }}
                   onMouseEnter={e => e.currentTarget.style.color = "#fff"}
                   onMouseLeave={e => e.currentTarget.style.color = "#abb2bf"}>
-                  <Image src="/icons/linkedin.svg" alt="linkedin" width={24} height={24} />
+                  <FiLinkedin size={20} aria-hidden="true" />
                   farisxdev
                 </a>
                 <a href="mailto:farisxdev@gmail.com" className="flex items-center gap-3"
                   style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, textDecoration: "none" }}
                   onMouseEnter={e => e.currentTarget.style.color = "#fff"}
                   onMouseLeave={e => e.currentTarget.style.color = "#abb2bf"}>
-                  <Image src="/icons/email.svg" alt="email" width={22} height={22} />
+                  <FiMail size={20} aria-hidden="true" />
                   farisxdev@gmail.com
                 </a>
               </div>
