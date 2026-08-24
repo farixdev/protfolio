@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { MediaSidebar } from "./components/MediaSidebar";
+import { FEATURED } from "./projectsData.mjs";
 
 // ── Dot grid — fixed pixel size, never stretches ─────────────────────────────
 function DotGrid({ cols = 5, rows = 5, size = 100 }) {
@@ -38,6 +39,8 @@ function Btn({ href, children }) {
   const [hovered, setHovered] = useState(false);
   return (
     <a href={href}
+      target={href.startsWith("http") ? "_blank" : undefined}
+      rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
@@ -68,30 +71,44 @@ function SectionHeading({ children }) {
   );
 }
 
-// ── Project card ─────────────────────────────────────────────────────────────
-function ProjectCard({ image, techs, name, desc, links }) {
+// ── Private badge — for projects without a public link ───────────────────────
+function PrivateBadge() {
   return (
-    <div style={{ border: "1px solid #abb2bf", display: "flex", flexDirection: "column" }}>
+    <span style={{
+      display: "inline-block", fontFamily: "FiraCode-Regular", padding: "8px 16px",
+      border: "1px solid #abb2bf", color: "#abb2bf", fontSize: 14, cursor: "default",
+    }}>
+      Private build — demo on request
+    </span>
+  );
+}
+
+// ── Project card ─────────────────────────────────────────────────────────────
+function ProjectCard({ cover, name, desc, links }) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        border: "1px solid #abb2bf", display: "flex", flexDirection: "column",
+        transition: "border-color 0.2s, transform 0.2s",
+        borderColor: hovered ? "#c470db" : "#abb2bf",
+        transform: hovered ? "translateY(-3px)" : "none",
+      }}>
       <div style={{ borderBottom: "1px solid #abb2bf", overflow: "hidden" }}>
-        <Image src={image} alt={name} width={400} height={220}
-          className="w-full object-cover" style={{ display: "block" }} />
+        {/* Minimal generated cover — carries the title + tech stack */}
+        <img src={cover} alt={name} width={800} height={450} loading="lazy"
+          style={{ display: "block", width: "100%", aspectRatio: "16 / 9", objectFit: "cover" }} />
       </div>
-      <ul className="flex flex-wrap gap-x-4 gap-y-1"
-        style={{ 
-          borderBottom: "1px solid #abb2bf", 
-          color: "#abb2bf", 
-          fontFamily: "FiraCode-Regular", 
-          fontSize: 13, 
-          listStyle: "none",
-          padding: "10px 16px"
-        }}>
-        {techs.map(t => <li key={t}>{t}</li>)}
-      </ul>
       <div style={{ padding: "16px 16px", display: "flex", flexDirection: "column", gap: 12, flex: 1 }}>
-        <div style={{ color: "#fff", fontSize: 20, fontWeight: 500 }}>{name}</div>
-        <div style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14 }}>{desc}</div>
+        {/* Name lives in the cover art; keep a real heading for SEO / screen readers. */}
+        <h3 className="sr-only">{name}</h3>
+        <p style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, lineHeight: 1.7, flex: 1 }}>{desc}</p>
         <div className="flex flex-wrap gap-2" style={{ marginTop: "auto" }}>
-          {links.map(({ label, href }) => <Btn key={label} href={href}>{label} =&gt;</Btn>)}
+          {links.length > 0
+            ? links.map(({ label, href }) => <Btn key={label} href={href}>{label} =&gt;</Btn>)
+            : <PrivateBadge />}
         </div>
       </div>
     </div>
@@ -131,31 +148,7 @@ function SkillBlock({ name, skills }) {
 
 // ── Page ─────────────────────────────────────────────────────────────────────
 export default function Home() {
-  const projects = [
-    {
-      image: "/icons/Hr-Web-Portal.png",
-   techs: ["Next.js", "NestJS", "MongoDB", "Tailwind CSS"],
-
-name: "HR Nexus",
-
-desc: "A modern HR management portal built to streamline employee management",
-      links: [{ label: "Figma", href: "https://www.figma.com/design/de9FmmVprHrJCfKnLJLo2s/HR-portal?node-id=0-1&t=QF4cZkCFRQjkSkDc-1" }, , { label: "Github", href: "https://github.com/farixdev/HR-Portal" }],
-    },
-     {
-      image: "/icons/siteMirror.png",
-      techs: ["Python", "Selenium" , 'BeautifulSoup' ,'PyQt5'],
-      name: "SiteMirror",
-      desc: "A desktop application that allows users to create local copies of websites for offline browsing",
-      links: [{ label: "Github", href: "https://github.com/farixdev/SiteMirror" }],
-    },
-    {
-      image: "/icons/App-FStore.png",
-      techs: ["Flutter", "Dart" , 'Firebase'],
-      name: "F-Store",
-      desc: "A modern Flutter e-commerce app with a full shopping experience and powerful admin panel",
-      links: [{ label: "Github", href: "https://github.com/farixdev/shop" }],
-    },
-  ];
+  const projects = FEATURED;
 
 const skills = [
   { name: "Languages",   skills: ["JavaScript", "Python", "Dart", "HTML5", "CSS3", "C++"] },
@@ -245,7 +238,7 @@ const skills = [
     </Link>
   </div>
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-    {projects.map(p => <ProjectCard key={p.name} {...p} />)}
+    {projects.map(p => <ProjectCard key={p.slug} cover={p.cover} name={p.name} desc={p.desc} links={p.links} />)}
   </div>
 </section>
 
