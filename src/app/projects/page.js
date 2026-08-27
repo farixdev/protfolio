@@ -64,8 +64,22 @@ function SectionHeading({ children }) {
   );
 }
 
+// ── Tech stack line — muted mono tags with purple middots ─────────────────────
+function TechLine({ techs }) {
+  return (
+    <div style={{ fontFamily: "FiraCode-Regular", fontSize: 12.5, color: "#8a93a0", lineHeight: 1.6 }}>
+      {techs.map((tech, i) => (
+        <span key={tech}>
+          {i > 0 && <span style={{ color: "#c470db" }}> · </span>}
+          {tech}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 // ── Project Card ──────────────────────────────────────────────────────────────
-function ProjectCard({ cover, name, desc, links }) {
+function ProjectCard({ cover, name, techs, desc, links }) {
   const [hovered, setHovered] = useState(false);
   return (
     <div
@@ -91,10 +105,10 @@ function ProjectCard({ cover, name, desc, links }) {
           style={{ display: "block", width: "100%", aspectRatio: "16 / 9", objectFit: "cover" }}
         />
       </div>
-      <div style={{ padding: 16, display: "flex", flexDirection: "column", gap: 12, flex: 1 }}>
-        {/* Name lives in the cover art; keep a real heading for SEO / screen readers. */}
-        <h3 className="sr-only">{name}</h3>
-        <p style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, lineHeight: 1.7, flex: 1 }}>{desc}</p>
+      <div style={{ padding: 16, display: "flex", flexDirection: "column", gap: 10, flex: 1 }}>
+        <h3 style={{ color: "#fff", fontSize: 18, fontWeight: 500, fontFamily: "FiraCode-Medium" }}>{name}</h3>
+        <TechLine techs={techs} />
+        <p style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, lineHeight: 1.7, flex: 1, marginTop: 2 }}>{desc}</p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: "auto" }}>
           {links.length > 0 ? (
             links.map(({ label, href }) => (
@@ -135,7 +149,7 @@ export default function Projects() {
             <p style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 13, marginBottom: 28 }}>{cat.blurb}</p>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 16 }}>
               {cat.projects.map((p) => (
-                <ProjectCard key={p.slug} cover={`/covers/${p.slug}.svg`} name={p.name} desc={p.desc} links={p.links} />
+                <ProjectCard key={p.slug} cover={`/covers/${p.slug}.svg`} name={p.name} techs={p.techs} desc={p.desc} links={p.links} />
               ))}
             </div>
           </section>

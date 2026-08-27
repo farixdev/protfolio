@@ -84,8 +84,22 @@ function PrivateBadge() {
   );
 }
 
+// ── Tech stack line — muted mono tags with purple middots ─────────────────────
+function TechLine({ techs }) {
+  return (
+    <div style={{ fontFamily: "FiraCode-Regular", fontSize: 12.5, color: "#8a93a0", lineHeight: 1.6 }}>
+      {techs.map((tech, i) => (
+        <span key={tech}>
+          {i > 0 && <span style={{ color: "#c470db" }}> · </span>}
+          {tech}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 // ── Project card ─────────────────────────────────────────────────────────────
-function ProjectCard({ cover, name, desc, links }) {
+function ProjectCard({ cover, name, techs, desc, links }) {
   const [hovered, setHovered] = useState(false);
   return (
     <div
@@ -102,10 +116,10 @@ function ProjectCard({ cover, name, desc, links }) {
         <img src={cover} alt={name} width={800} height={450} loading="lazy"
           style={{ display: "block", width: "100%", aspectRatio: "16 / 9", objectFit: "cover" }} />
       </div>
-      <div style={{ padding: "16px 16px", display: "flex", flexDirection: "column", gap: 12, flex: 1 }}>
-        {/* Name lives in the cover art; keep a real heading for SEO / screen readers. */}
-        <h3 className="sr-only">{name}</h3>
-        <p style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, lineHeight: 1.7, flex: 1 }}>{desc}</p>
+      <div style={{ padding: "16px 16px", display: "flex", flexDirection: "column", gap: 10, flex: 1 }}>
+        <h3 style={{ color: "#fff", fontSize: 18, fontWeight: 500, fontFamily: "FiraCode-Medium" }}>{name}</h3>
+        <TechLine techs={techs} />
+        <p style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, lineHeight: 1.7, flex: 1, marginTop: 2 }}>{desc}</p>
         <div className="flex flex-wrap gap-2" style={{ marginTop: "auto" }}>
           {links.length > 0
             ? links.map(({ label, href }) => <Btn key={label} href={href}>{label} =&gt;</Btn>)
@@ -239,7 +253,7 @@ const skills = [
     </Link>
   </div>
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-    {projects.map(p => <ProjectCard key={p.slug} cover={p.cover} name={p.name} desc={p.desc} links={p.links} />)}
+    {projects.map(p => <ProjectCard key={p.slug} cover={p.cover} name={p.name} techs={p.techs} desc={p.desc} links={p.links} />)}
   </div>
 </section>
 

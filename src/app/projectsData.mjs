@@ -20,13 +20,6 @@ export const CATEGORIES = [
         featured: true,
       },
       {
-        slug: "talora",
-        name: "Talora AI",
-        techs: ["Python", "Vapi", "Selenium", "SQLite"],
-        desc: "An AI voice sales-agent platform: scrape leads from Google Maps, dial them one at a time or in bulk with a live AI agent, then track every deal through a pitch pipeline and follow-up queue.",
-        links: [],
-      },
-      {
         slug: "screened",
         name: "Screened AI",
         techs: ["Electron", "React", "TypeScript", "Deepgram"],
