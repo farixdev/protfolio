@@ -85,7 +85,7 @@ export default function AboutMe() {
           {/* Text */}
           <div style={{ flex: 1, minWidth: 260, display: "flex", flexDirection: "column", gap: 16 }}>
             {[
-              "  I'm a full-stack developer and automation engineer based in Lahore, Pakistan, with 5+ years of experience building web applications, e-commerce platforms, and custom software tools that solve real business problems.",
+              "  I'm a full-stack developer and automation engineer based in Lahore, Pakistan, with 2+ years of experience building web applications, e-commerce platforms, and custom software tools that solve real business problems.",
               "I work across the full stack — from React and Next.js frontends to Node.js backends, WordPress and Shopify stores, and Flutter mobile apps. When repetitive work slows teams down, I automate it with Python.",
               "  Currently studying Software Engineering at Superior University, Lahore — and building real things while I do it.",
             ].map((text, i) => (

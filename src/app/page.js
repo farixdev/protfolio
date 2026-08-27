@@ -292,7 +292,7 @@ const skills = [
             <div className="flex flex-col gap-4" style={{ marginBottom: 32 }}>
              <p style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, lineHeight: 1.8 }}>
   I'm a full-stack developer and automation engineer based in Lahore, Pakistan, 
-  with 5+ years of experience building web applications, e-commerce platforms, 
+  with 2+ years of experience building web applications, e-commerce platforms,
   and custom software tools that solve real business problems.
 </p>
 <p style={{ color: "#abb2bf", fontFamily: "FiraCode-Regular", fontSize: 14, lineHeight: 1.8 }}>
