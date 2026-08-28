@@ -16,7 +16,7 @@ export const CATEGORIES = [
         name: "Fiona",
         techs: ["Python", "OpenAI Realtime", "Twilio", "WebSockets"],
         desc: "A desktop AI voice-calling studio that answers and places real phone calls, bridging Twilio telephony to OpenAI's Realtime speech-to-speech API — with per-call transcription, lead extraction, and exact cost tracking.",
-        links: [],
+        links: [{ label: "Website", href: "https://fiona-smoky.vercel.app/" }],
         featured: true,
       },
       {
@@ -48,8 +48,15 @@ export const CATEGORIES = [
         name: "Clora AI Portal",
         techs: ["Next.js", "NestJS", "PostgreSQL", "Tailwind"],
         desc: "A multi-company HR and payroll portal with role- and department-scoped access, attendance, leave, payslips, and optional biometric fingerprint + gate-terminal integrations.",
-        links: [],
+        links: [{ label: "Website", href: "https://clora-ai-demo.vercel.app/login" }],
         featured: true,
+      },
+      {
+        slug: "seo",
+        name: "SEO Management",
+        techs: ["Next.js", "PostgreSQL", "Drizzle", "Tailwind"],
+        desc: "A multi-project SEO management platform with an agency console for keywords, pages, backlinks, rankings and deliverables, plus a read-only client portal that reports in plain language and threads messages back to the team.",
+        links: [{ label: "Website", href: "https://seo-dashboard-demo-sooty.vercel.app/" }],
       },
       {
         slug: "hubchat",
@@ -65,8 +72,9 @@ export const CATEGORIES = [
         techs: ["Next.js", "NestJS", "MongoDB", "Tailwind"],
         desc: "An anonymous confession platform where people share the thoughts and words they never had the courage to say — no account, no identity, no judgment.",
         links: [
-          { label: "Figma", href: "https://www.figma.com/design/KaO7WhtydVZvxO04tAMTHo/Things-I-never-said?node-id=0-1&t=bxciuK60A9leEAyG-1" },
+          { label: "Website", href: "https://things-i-never-said-taupe.vercel.app/" },
           { label: "Github", href: "https://github.com/farixdev/ThingsINeverSaid" },
+          { label: "Figma", href: "https://www.figma.com/design/KaO7WhtydVZvxO04tAMTHo/Things-I-never-said?node-id=0-1&t=bxciuK60A9leEAyG-1" },
         ],
       },
       {
@@ -165,9 +173,16 @@ export const CATEGORIES = [
     key: "systems",
     label: "systems",
     title: "Systems & Experiments",
-    blurb: "Low-level, for-the-craft builds — a web firewall and a mining engine.",
+    blurb: "Low-level, for-the-craft builds — protocols, a firewall, a mining engine.",
     glyph: "terminal",
     projects: [
+      {
+        slug: "slate",
+        name: "Slate",
+        techs: ["Flutter", "Dart", "Win32", "Sockets"],
+        desc: "Turns an Android or iOS phone into a wireless trackpad and keyboard for Windows over Wi-Fi — one finger moves the cursor, two scroll, three switch desktops — through a custom wire protocol, with nothing leaving your network.",
+        links: [],
+      },
       {
         slug: "aegis",
         name: "Aegis WAF",

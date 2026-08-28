@@ -67,6 +67,25 @@ const scenes = {
   drift: () => dashboard({ bg: "#0b0e13", side: "#0e1219", card: "#121722", cardBorder: "#20293a", line: "#222b39", sub: "#5f6b7e", text: "#e8edf4", accent: "#3b82f6", accentSoft: "#3b82f622", cta: "#3b82f6", hi: 0 }),
   clora: () => dashboard({ bg: "#eef2ee", side: "#ffffff", card: "#ffffff", cardBorder: "#dbe5db", line: "#d7e0d7", sub: "#7c8b7f", text: "#173a24", accent: "#16a34a", accentSoft: "#16a34a1f", cta: "#16a34a", hi: 0 }),
 
+  seo: () => {
+    const bg = "#f6f7fb", card = "#ffffff", line = "#e6e8f0", sub = "#6b7180", text = "#1c1f2a", A = "#6a5af9", As = "#6a5af91f", up = "#22c58e", down = "#f5566b";
+    let s = r(0, 0, W, H, bg, 0);
+    s += r(0, 0, 150, H, "#ffffff", 0) + ln(150, 0, 150, H, line, 1) + r(20, 22, 26, 26, A, 7) + r(54, 30, 64, 8, text, 4);
+    s += r(14, 70, 122, 32, As, 9) + r(26, 82, 80, 7, A, 4);
+    for (let i = 1; i < 6; i++) s += r(26, 82 + i * 32, 76, 7, line, 4);
+    s += r(176, 30, 150, 14, text, 4) + r(176, 54, 100, 9, sub, 4) + r(600, 28, 96, 30, card, 8) + rs(600, 28, 96, 30, line, 8, 1) + r(704, 28, 80, 30, A, 8);
+    [176, 332, 488, 644].forEach((x, i) => (s += r(x, 84, 142, 64, card, 10) + rs(x, 84, 142, 64, line, 10, 1) + r(x + 14, 100, 54, 6, sub, 3) + r(x + 14, 116, 46, 16, text, 4) + r(x + 98, 116, 30, 12, i % 2 ? down : up, 4)));
+    s += r(176, 164, 384, 196, card, 10) + rs(176, 164, 384, 196, line, 10, 1) + r(192, 182, 110, 8, sub, 4);
+    const pts = [[196, 320], [240, 300], [284, 308], [328, 278], [372, 286], [416, 250], [460, 262], [504, 226], [540, 234]];
+    s += `<path d="M196,340 L${pts.map((p) => p.join(",")).join(" L")} L540,340 Z" fill="${A}" fill-opacity="0.12"/>`;
+    s += `<polyline points="${pts.map((p) => p.join(",")).join(" ")}" fill="none" stroke="${A}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`;
+    pts.filter((_, i) => i % 2 === 0).forEach(([x, y]) => (s += c(x, y, 3, A)));
+    s += r(576, 164, 224, 196, card, 10) + rs(576, 164, 224, 196, line, 10, 1) + r(592, 182, 90, 8, sub, 4);
+    for (let i = 0; i < 5; i++) { const y = 202 + i * 30; s += r(592, y, 100, 8, i === 0 ? text : line, 4) + r(722, y - 5, 54, 16, i < 2 ? "#22c58e22" : "#eef0f6", 5) + r(730, y, 38, 7, i < 2 ? up : sub, 3); }
+    s += r(176, 368, 624, 58, card, 10) + rs(176, 368, 624, 58, line, 10, 1) + r(192, 388, 90, 8, sub, 4) + r(192, 404, 220, 7, line, 4);
+    return s;
+  },
+
   kasoti: (P = { bg: "#0a0e15", card: "#111726", line: "#232c40", sub: "#6f7b92", text: "#eef2f7" }) => {
     let s = r(0, 0, W, H, P.bg, 0);
     s += r(40, 34, 30, 30, "#20263a", 8) + r(80, 40, 70, 8, P.text, 4) + r(80, 54, 110, 6, P.sub, 4);
@@ -256,6 +275,26 @@ const scenes = {
       { t: "█", c: "#f7931a" },
     ],
   }),
+
+  slate: () => {
+    const bg = "#08090d", surf = "#121420", raised = "#1a1d2c", sunken = "#0c0e16", line = "#23273a", line2 = "#343a52", sub = "#9ba1b7", A = "#7c6cff", teal = "#3ed6c5";
+    let s = r(0, 0, W, H, bg, 0);
+    // monitor (right) — the PC being controlled
+    s += r(430, 80, 320, 196, surf, 12) + rs(430, 80, 320, 196, line, 12, 1) + r(448, 98, 284, 150, sunken, 6);
+    s += r(464, 116, 90, 8, sub, 4) + r(464, 134, 200, 6, line2, 3) + r(464, 150, 160, 6, line2, 3) + r(600, 170, 120, 60, raised, 6) + rs(600, 170, 120, 60, line2, 6, 1);
+    s += `<path d="M556 172 L556 212 L567 202 L575 219 L584 215 L576 199 L588 199 Z" fill="${A}"/>`;
+    s += r(575, 276, 30, 20, surf, 3) + r(543, 296, 94, 8, raised, 3);
+    // phone (left) — the trackpad surface
+    s += r(96, 60, 196, 330, surf, 26) + rs(96, 60, 196, 330, line, 26, 1.5) + c(194, 80, 3, line2) + r(120, 96, 60, 7, sub, 3);
+    s += r(112, 116, 164, 214, sunken, 12) + rs(112, 116, 164, 214, line, 12, 1);
+    s += cs(194, 210, 44, A + "33", 1.5) + cs(194, 210, 26, A + "77", 1.5) + c(194, 210, 7, A);
+    for (let i = 0; i < 5; i++) s += r(116 + i * 33, 344, 26, 14, raised, 3);
+    // Wi-Fi link phone → PC (teal)
+    s += `<path d="M300 152 C 360 120, 384 132, 428 152" fill="none" stroke="${teal}" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round"/>`;
+    s += c(300, 152, 4, teal) + c(428, 152, 4, teal);
+    s += `<path d="M328 126 q16 -15 32 0 M335 133 q9 -9 18 0" fill="none" stroke="${teal}" stroke-width="2" stroke-linecap="round"/>`;
+    return s;
+  },
 };
 
 // ── build ─────────────────────────────────────────────────────────────────────
